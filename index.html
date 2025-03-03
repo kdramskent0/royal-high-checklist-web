@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal High Badge Holders</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('https://i.pinimg.com/736x/09/31/5c/09315c605dfe77443feab4c18c156bb0.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white; /* Light Alice Blue for text */
+            font-family: 'Press Start 2P', cursive; /* Applying pixel font to all text */
+            text-align: center;
+        }
+        .content, .checklist-box {
+            background: rgba(140, 200, 255, 0.67); /* Semi-transparent white for soft contrast */
+            padding: 20px; /* Adjusted padding for a smaller box */
+            border-radius: 10px;
+            display: none;
+        }
+        .content {
+            display: block;
+            width: 500px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            background: rgb(208, 232, 255); /* Light blue to match the soft background */
+            color: rgb(113, 172, 246); /* Darker text for contrast */
+            border-radius: 5px;
+            font-family: 'Press Start 2P', cursive; /* Ensuring pixel font for the button */
+        }
+        button:hover {
+            background: rgb(167, 199, 231); /* Slightly darker blue on hover */
+        }
+        .checklist-box {
+            background: rgba(140, 200, 255, 0.67); /* Slightly lighter white with more opacity */
+            padding: 15px; /* Reduced padding for a smaller box */
+            border-radius: 10px;
+            text-align: left;
+            width: 600px; /* Reduced width */
+            max-height: 450px; /* Adjusted height */
+        }
+        .checklist-box .scroll-container {
+            max-height: 300px; /* Adjusted height for the scrollable area */
+            overflow-y: auto; /* Enable vertical scrolling */
+        }
+        .checklist-box ul {
+            list-style: none;
+            padding: 0;
+        }
+        .checklist-box li {
+            background: #d2e9ff; /* Soft Alice Blue */
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+        .checklist-box input[type="checkbox"] {
+            margin-right: 10px;
+            width: 20px;
+            height: 20px;
+        }
+        .checklist-box img {
+            width: 70px;  /* Increase the width */
+            height: 70px; /* Increase the height */
+            margin-left: 10px;
+        }
+        .checked-label {
+            color: rgb(56, 126, 188); /* Cornflower blue for checked items */
+            text-decoration: underline;
+        }
+        .search-bar {
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 16px;
+            width: 96%;
+            border-radius: 5px;
+            border: none;
+            background-color: rgb(230, 243, 255);
+            color: white; /* Set the text color to white */
+            font-family: 'Press Start 2P', cursive; /* Pixel font for the search bar */
+        }
+    </style>
+</head>
+<body>
+    <div class="content" id="mainBox">
+        <h1>Royal High Badge Holders List</h1>
+        <button onclick="openChecklist()">Open</button>
+    </div>
+     <!-- Audio Element for Click Sound -->
+    <audio id="clickSound" src="mouse-click-153941.mp3"></audio>
+    
+    <div class="checklist-box" id="checklistBox">
+        <h1 id="checklistTitle">Royal High Checklist</h1>
+        <!-- Search bar -->
+        <input type="text" id="searchBar" class="search-bar" onkeyup="searchChecklist()" placeholder="Search for badges...">
+        
+        <!-- Scrollable container for the checklist -->
+        <div class="scroll-container">
+            <ul id="checklistItems">
+                <li>
+                    <input type="checkbox" id="check1" onchange="toggleLabel(this)">
+                    <span id="label1"> RoyaleAshe</span>
+                    <img src="noFilter%20(1).png" alt="Blue Spring Ride Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check2" onchange="toggleLabel(this)">
+                    <span id="label2"> Devilishfellcw</span>
+                    <img src="You_Met_Designer_devilishfellcw%2521.webp" alt="Wotokaoi Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check3" onchange="toggleLabel(this)">
+                    <span id="label3"> Itscherryroyale</span>
+                    <img src="noFilter%20(2).png" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check4" onchange="toggleLabel(this)">
+                    <span id="label4"> Superiorchloe</span>
+                    <img src="I_Met_YouTuber_superiorchloe%2521.webp" alt="Horimiya Icon">
+                </li>
+                                <li>
+                    <input type="checkbox" id="check5" onchange="toggleLabel(this)">
+                    <span id="label5">Shrekyou21</span>
+                    <img src="I_Met_YouTuber_Shrekyou21%2521.webp" alt="Horimiya Icon">
+                </li>
+                                <li>
+                    <input type="checkbox" id="check6" onchange="toggleLabel(this)">
+                    <span id="label6"> Ilacxnova</span>
+                    <img src="https://i.pinimg.com/736x/75/28/37/7528375755d5c30d04712ab9d85b5bbe.jpg" alt="Horimiya Icon">
+                </li>
+               <li>
+                    <input type="checkbox" id="check7" onchange="toggleLabel(this)">
+                    <span id="label7"> Seizari</span>
+                    <img src="https://i.pinimg.com/474x/39/59/e1/3959e1aec731faca6d64bcdd2bcdfa3b.jpg" alt="Horimiya Icon">
+                </li>
+               <li>
+                    <input type="checkbox" id="check8" onchange="toggleLabel(this)">
+                    <span id="label8">Moshipitchy</span>
+                    <img src="https://i.pinimg.com/474x/05/c8/3d/05c83d9a9522fa165367f7ba3ea27122.jpg" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check9" onchange="toggleLabel(this)">
+                    <span id="label9">Royale Evielyn</span>
+                    <img src="https://i.pinimg.com/474x/91/f2/b8/91f2b81c2b87a4991d6b184cce3cdecf.jpg" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check10" onchange="toggleLabel(this)">
+                    <span id="label10">Quiixell</span>
+                    <img src="https://i.pinimg.com/474x/e1/6b/42/e16b426e5c1218ecca8ae2528c8e0896.jpg" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check11" onchange="toggleLabel(this)">
+                    <span id="label12"> Senzie</span>
+                    <img src="https://i.pinimg.com/736x/84/03/44/840344a16bd3b5b3995b107be664ca59.jpg" alt="Horimiya Icon">
+                </li>                
+                    <li>
+                    <input type="checkbox" id="check13" onchange="toggleLabel(this)">
+                    <span id="label13">Bongo</span>
+                    <img src="noFilter%20(4).png" alt="Horimiya Icon">
+                </li>    
+                    <li>
+                    <input type="checkbox" id="check14" onchange="toggleLabel(this)">
+                    <span id="label14"> Dxstarlight_</span>
+                    <img src="https://i.pinimg.com/474x/1e/f5/83/1ef583d04c6d70393b084f539f0ea3d1.jpg" alt="Horimiya Icon">
+                </li>            
+                    <li>
+                    <input type="checkbox" id="check15" onchange="toggleLabel(this)">
+                    <span id="label15">Auvanilla</span>
+                    <img src="https://i.pinimg.com/474x/b9/83/b8/b983b8d6a1153b2af4e898ce46238e8f.jpg" alt="Horimiya Icon">
+                </li> 
+               <li>
+                    <input type="checkbox" id="check16" onchange="toggleLabel(this)">
+                    <span id="label16">Lil_MamaPLayz</span>
+                    <img src="https://i.pinimg.com/474x/b1/82/53/b18253a97f2275c0b92c0128d8ab3629.jpg" alt="Horimiya Icon">
+                </li>        
+                <li>
+                    <input type="checkbox" id="check17" onchange="toggleLabel(this)">
+                    <span id="label17">Ibibbishiboula</span>
+                    <img src="https://i.pinimg.com/474x/17/15/d3/1715d3cf79fcd6f67116bd46e7f30a9d.jpg" alt="Horimiya Icon">
+                </li>                
+                        <li>
+                    <input type="checkbox" id="check18" onchange="toggleLabel(this)">
+                    <span id="label18">Shion</span>
+                    <img src="I_Met_YouTuber_Shion%2521.webp" alt="Horimiya Icon">
+                </li>  
+                    <li>
+                    <input type="checkbox" id="check19" onchange="toggleLabel(this)">
+                    <span id="label19"> Maislie</span>
+                    <img src="https://i.pinimg.com/474x/0a/9a/b6/0a9ab6b0d96969c048dcdad2759edc9b.jpg" alt="Horimiya Icon">
+                </li>
+               <li>
+                    <input type="checkbox" id="check20" onchange="toggleLabel(this)">
+                    <span id="label20"> CrystxlCorgi</span>
+                    <img src="https://i.pinimg.com/474x/a0/a1/11/a0a111027372e4c8951ea6098dfc1dde.jpg" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check21" onchange="toggleLabel(this)">
+                    <span id="label21">Jellyflavor99</span>
+                    <img src="https://i.pinimg.com/474x/6e/df/00/6edf00c7ff16fb0c07a288bb6fec084f.jpg" alt="Horimiya Icon">
+                </li>            
+                <li>
+                    <input type="checkbox" id="check22" onchange="toggleLabel(this)">
+                    <span id="label22">PokeTrainerJuju</span>
+                    <img src="https://i.pinimg.com/474x/d4/f1/d1/d4f1d15206a2bde8ff5c4f09b4ce50c7.jpg" alt="Horimiya Icon">
+                </li>  
+                                <li>
+                    <input type="checkbox" id="check23" onchange="toggleLabel(this)">
+                    <span id="label23">Noyah</span>
+                    <img src="https://i.pinimg.com/474x/45/7a/d9/457ad9629e3cb6e98ebfd6cffc304768.jpg" alt="Horimiya Icon">
+                </li>
+                                <li>
+                    <input type="checkbox" id="check24" onchange="toggleLabel(this)">
+                    <span id="label24">Callmehtrex</span>
+                    <img src="noFilter%20(3).png" alt="Horimiya Icon">
+                </li>  
+                   <li>
+                    <input type="checkbox" id="check25" onchange="toggleLabel(this)">
+                    <span id="label25">CyberKiki</span>
+                    <img src="https://i.pinimg.com/474x/47/89/ae/4789ae20d21c936828e7d58cfd5dc8d0.jpg" alt="Horimiya Icon">
+                </li>  
+                   <li>
+                    <input type="checkbox" id="check26" onchange="toggleLabel(this)">
+                    <span id="label26">CookieSwirlC</span>
+                    <img src="https://i.pinimg.com/474x/4b/bb/2c/4bbb2c7b42cf45ed64fa0d232a27f792.jpg" alt="Horimiya Icon">
+                </li>  
+                   <li>
+                    <input type="checkbox" id="check27" onchange="toggleLabel(this)">
+                    <span id="label27">Darlinq_kenny</span>
+                    <img src="https://i.pinimg.com/474x/e7/f5/07/e7f50745ed329d6ce64d5cc696de52fd.jpg" alt="Horimiya Icon">
+                </li>  
+                   <li>
+                    <input type="checkbox" id="check28" onchange="toggleLabel(this)">
+                    <span id="label28"> Sienna</span>
+                    <img src="https://i.pinimg.com/474x/1d/57/db/1d57dbdaf93ed16045643d16b77b5137.jpg" alt="Horimiya Icon">
+                </li>  
+                   <li>
+                    <input type="checkbox" id="check29" onchange="toggleLabel(this)">
+                    <span id="label29">Solar_Eclipser</span>
+                    <img src="https://i.pinimg.com/474x/00/25/8a/00258a10a556fd3a4652a90e23e57dcb.jpg" alt="Horimiya Icon">
+                </li>  
+                   <li>
+                    <input type="checkbox" id="check30" onchange="toggleLabel(this)">
+                    <span id="label30">Nab</span>
+                    <img src="https://i.pinimg.com/474x/98/3e/9c/983e9c614b2e1c7a274e57704568d4bb.jpg" alt="Horimiya Icon">
+                </li>  
+                   <li>
+                    <input type="checkbox" id="check31" onchange="toggleLabel(this)">
+                    <span id="label31">Noa</span>
+                    <img src="You_Met_Influencer_N21.webp" alt="Horimiya Icon">
+                </li> 
+                   <li>
+                    <input type="checkbox" id="check32" onchange="toggleLabel(this)">
+                    <span id="label32">GazingGen</span>
+                    <img src="noFilter.png" alt="Horimiya Icon">
+                </li>  
+                 <li>
+                    <input type="checkbox" id="check33" onchange="toggleLabel(this)">
+                    <span id="label33">Nad</span>
+                    <img src="You_Met_Artist_Nad%2521.webp" alt="Horimiya Icon">
+                </li>  
+                 <li>
+                    <input type="checkbox" id="check34" onchange="toggleLabel(this)">
+                    <span id="label34">BoxDoge</span>
+                    <img src="You_Met_Influencer_BoxDoge%2521.webp" alt="Horimiya Icon">
+                </li>  
+             <li>
+                    <input type="checkbox" id="check35" onchange="toggleLabel(this)">
+                    <span id="label35">Mafalda3p0</span>
+                    <img src="You_Met_Influencer_Mafalda3p0%2521.webp" alt="Horimiya Icon">
+                </li>  
+                 <li>
+                    <input type="checkbox" id="check36" onchange="toggleLabel(this)">
+                    <span id="label36">Ushiesu</span>
+                    <img src="You_Met_Artist_Ushiesu%2521.webp" alt="Horimiya Icon">
+                </li>  
+                 <li>
+                    <input type="checkbox" id="check37" onchange="toggleLabel(this)">
+                    <span id="label37">WirySofie</span>
+                    <img src="You_Met_Artist_Wirysofie%2521.webp" alt="Horimiya Icon">
+                </li>  
+                 <li>
+                    <input type="checkbox" id="check38" onchange="toggleLabel(this)">
+                    <span id="label38">QueenChroma</span>
+                    <img src="You_Met_Artist_QueenChroma%2521.webp" alt="Horimiya Icon">
+                </li>  
+                 <li>
+                    <input type="checkbox" id="check39" onchange="toggleLabel(this)">
+                    <span id="label39">Coffv</span>
+                    <img src="You_Met_Twitch_Streamer2C_and_YTer_coffv%2521.webp" alt="Horimiya Icon">
+                </li>  
+                 <li>
+                    <input type="checkbox" id="check40" onchange="toggleLabel(this)">
+                    <span id="label40">Aly1263</span>
+                    <img src="You_Met_Twitch_Streamer_Aly1263%2521.webp" alt="Horimiya Icon">
+                </li> 
+                 <li>
+                    <input type="checkbox" id="check41" onchange="toggleLabel(this)">
+                    <span id="label41">PurplePotatOwO</span>
+                    <img src="You_Met_Artist_PurplePotatOwO%2521.webp" alt="Horimiya Icon">
+                </li>  
+                 <li>
+                    <input type="checkbox" id="check42" onchange="toggleLabel(this)">
+                    <span id="label42">DearBea</span>
+                    <img src="You_Met_Makeup_Artist_Dear_Bea%2521.webp" alt="Horimiya Icon">
+                </li>  
+                <li>
+                    <input type="checkbox" id="check43" onchange="toggleLabel(this)">
+                    <span id="label43">Lapz</span>
+                    <img src="You_Met_Makeup_Artist_Lapz%2521.webp" alt="Horimiya Icon">
+                </li>  
+                 <li>
+                    <input type="checkbox" id="check44" onchange="toggleLabel(this)">
+                    <span id="label44">Hiury</span>
+                    <img src="You_Met_Hair_Texture_Designer_FernandoGTeddi%2521.webp" alt="Horimiya Icon">
+                </li>  
+                 <li>
+                    <input type="checkbox" id="check45" onchange="toggleLabel(this)">
+                    <span id="label45">ArtsyChanel</span>
+                    <img src="You_Met_Makeup_Artist_ArtsyChanel%2521.webp" alt="Horimiya Icon">
+                </li>  
+                <li>
+                    <input type="checkbox" id="check46" onchange="toggleLabel(this)">
+                    <span id="label46">StarlaBlitzBloom</span>
+                    <img src="You_Met_Makeup_Artist_StarlaBlitzBloom%2521.webp" alt="Horimiya Icon">
+                </li>  
+                <li>
+                    <input type="checkbox" id="check47" onchange="toggleLabel(this)">
+                    <span id="label47">xBvnnyBoo</span>
+                    <img src="You_Met_Makeup_Artist_xBvnnyBoo%2521.webp" alt="Horimiya Icon">
+                </li>  
+                <li>
+                    <input type="checkbox" id="check48" onchange="toggleLabel(this)">
+                    <span id="label48">Sal</span>
+                    <img src="noFilter%20(65).webp" alt="Horimiya Icon">
+                </li>  
+                <li>
+                    <input type="checkbox" id="check49" onchange="toggleLabel(this)">
+                    <span id="label49">Abbie's Outlet</span>
+                    <img src="You_Met_Youtube_Abbie21.webp" alt="Horimiya Icon">
+                </li>  
+                <li>
+                    <input type="checkbox" id="check50" onchange="toggleLabel(this)">
+                    <span id="label50">Taoino_YT</span>
+                    <img src="You_Met_Youtuber_Taoino_YT3F_Friend.webp" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check51" onchange="toggleLabel(this)">
+                    <span id="label51">Suzy Builds</span>
+                    <img src="noFilter%20(64).webp" alt="Horimiya Icon">
+                </li>  
+                <li>
+                    <input type="checkbox" id="check52" onchange="toggleLabel(this)">
+                    <span id="label52">TauriWho?</span>
+                    <img src="noFilter%20(63).webp" alt="Horimiya Icon">
+                </li>  
+                <li>
+                    <input type="checkbox" id="check53" onchange="toggleLabel(this)">
+                    <span id="label53">MissAlicePlay</span>
+                    <img src="You_Met_Youtuber_MissAlicePlay%2521.webp" alt="Horimiya Icon">
+                </li>  
+                <li>
+                    <input type="checkbox" id="check54" onchange="toggleLabel(this)">
+                    <span id="label54">NotLukash</span>
+                    <img src="You_Met_Youtuber_NotLukash%2521.webp" alt="Horimiya Icon">
+                </li>  
+                <li>
+                    <input type="checkbox" id="check55" onchange="toggleLabel(this)">
+                    <span id="label55">LangGames</span>
+                    <img src="You_Met_Youtuber_LandG_games%2521.webp" alt="Horimiya Icon">
+                </li>  
+                <li>
+                    <input type="checkbox" id="check56" onchange="toggleLabel(this)">
+                    <span id="label56">SrWitherHD</span>
+                    <img src="You_Met_Youtuber_SrWitherHD%2521.webp" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check57" onchange="toggleLabel(this)">
+                    <span id="label57">DeviBuns</span>
+                    <img src="noFilter%20(62).webp" alt="Horimiya Icon">
+                </li>  
+                <li>
+                    <input type="checkbox" id="check58" onchange="toggleLabel(this)">
+                    <span id="label58">Stixxntricks</span>
+                    <img src="You_Met_RH_Developer_stixxntricks%2521.webp" alt="Horimiya Icon">
+                </li> 
+                <li>
+                    <input type="checkbox" id="check59" onchange="toggleLabel(this)">
+                    <span id="label59">iiFer_plays</span>
+                    <img src="You_Met_Royale_High_Developer_iiFer_plays%2521.webp" alt="Horimiya Icon">
+                </li>  
+                <li>
+                    <input type="checkbox" id="check60" onchange="toggleLabel(this)">
+                    <span id="label60">AshleyBunni</span>
+                    <img src="https://i.pinimg.com/736x/ba/bd/34/babd34dc391ad4a1b327756b8ab344b7.jpg" alt="Horimiya Icon">
+                </li>  
+                <li>
+                    <input type="checkbox" id="check61" onchange="toggleLabel(this)">
+                    <span id="label61">BeaPlays & Dollie</span>
+                    <img src="You_Met_YouTuber_BeaPlays%2521.webp" alt="Horimiya Icon">
+                </li> 
+                <li>
+                    <input type="checkbox" id="check62" onchange="toggleLabel(this)">
+                    <span id="label62">CallMehHalley</span>
+                    <img src="noFilter%20(5).png" alt="Horimiya Icon">
+                </li>  
+                <li>
+                    <input type="checkbox" id="check63" onchange="toggleLabel(this)">
+                    <span id="label63">Calinpj04</span>
+                    <img src="You-met-scripter-calinpj04.webp" alt="Horimiya Icon">
+                </li>  
+                <li>
+                    <input type="checkbox" id="check64" onchange="toggleLabel(this)">
+                    <span id="label64">Reddie The Teddie</span>
+                    <img src="You_Met_Royale_Developer_ReddieTheTeddy%2521.webp" alt="Horimiya Icon">
+                </li>  
+                <li>
+                    <input type="checkbox" id="check65" onchange="toggleLabel(this)">
+                    <span id="label65">Ixchoco_</span>
+                    <img src="You_Met_Royale_Graphic_Designer_ixchoco%2521.webp" alt="Horimiya Icon">
+                </li>  
+                <li>
+                    <input type="checkbox" id="check66" onchange="toggleLabel(this)">
+                    <span id="label66">Vioncii</span>
+                    <img src="you_Met_Royale_Developer_Vioncii%2521.webp" alt="Horimiya Icon">
+                </li>  
+                <li>
+                    <input type="checkbox" id="check67" onchange="toggleLabel(this)">
+                    <span id="label67">Jammo</span>
+                    <img src="You_Met_Royale_Developer_JamJooJoo.webp" alt="Horimiya Icon">
+                </li>  
+                <li>
+                    <input type="checkbox" id="check68" onchange="toggleLabel(this)">
+                    <span id="label68">Harht</span>
+                    <img src="You_Met_Royale_Developer_harht.webp" alt="Horimiya Icon">
+                </li>  
+                <li>
+                    <input type="checkbox" id="check69" onchange="toggleLabel(this)">
+                    <span id="label69">D5no</span>
+                    <img src="You_Met_Royale_Developer_d5no.webp" alt="Horimiya Icon">
+                </li>  
+                <li>
+                    <input type="checkbox" id="check70" onchange="toggleLabel(this)">
+                    <span id="label70">Cristal_fl0urite</span>
+                    <img src="https://i.pinimg.com/474x/7c/ea/f9/7ceaf914b43b1de4488cdf162239165f.jpg" alt="Horimiya Icon">
+                </li>  
+                <li>
+                    <input type="checkbox" id="check71" onchange="toggleLabel(this)">
+                    <span id="label71">MlpandWinxFairyPony</span>
+                    <img src="https://i.pinimg.com/474x/70/77/cd/7077cd4aee7dadc4377a6778a71aff9c.jpg" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check72" onchange="toggleLabel(this)">
+                    <span id="label72">EvilArtist</span>
+                    <img src="https://i.pinimg.com/474x/9f/b0/1a/9fb01a11cf704c3a3c2934d9bf11bfcc.jpg" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check73" onchange="toggleLabel(this)">
+                    <span id="label73">Xetrii</span>
+                    <img src="You_Met_Makeup_Artist_Xetrii%2521.webp" alt="Horimiya Icon">
+                </li>  
+                 <li>
+                    <input type="checkbox" id="check74" onchange="toggleLabel(this)">
+                    <span id="label74">Vex_SV</span>
+                    <img src="https://i.pinimg.com/474x/77/00/7f/77007f1015e80135a5322abcdd17531d.jpg" alt="Horimiya Icon">
+                </li>
+                 <li>
+                    <input type="checkbox" id="check75" onchange="toggleLabel(this)">
+                    <span id="label75">Twinyard</span>
+                    <img src="https://i.pinimg.com/474x/18/9d/37/189d37b660ec242970c41fe8a899bec4.jpg" alt="Horimiya Icon">
+                </li>
+                 <li>
+                    <input type="checkbox" id="check76" onchange="toggleLabel(this)">
+                    <span id="label76">RoyaleStarxy</span>
+                    <img src="You_Met_Animator_RoyaleStarxy%2521.webp" alt="Horimiya Icon">
+                </li>
+                 <li>
+                    <input type="checkbox" id="check77" onchange="toggleLabel(this)">
+                    <span id="label77">ItsSiena</span>
+                    <img src="You_Met_Youtuber_ItsSiena%2521.webp" alt="Horimiya Icon">
+                </li>
+                 <li>
+                    <input type="checkbox" id="check78" onchange="toggleLabel(this)">
+                    <span id="label78">Sheena_Sv</span>
+                    <img src="You_Met_Makeup_Artist_Sheena_SV%2521.webp" alt="Horimiya Icon">
+                </li>
+                 <li>
+                    <input type="checkbox" id="check79" onchange="toggleLabel(this)">
+                    <span id="label79">Jennisimmer</span>
+                    <img src="noFilter%20(1).webp" alt="Horimiya Icon">
+                </li>
+                 <li>
+                    <input type="checkbox" id="check80" onchange="toggleLabel(this)">
+                    <span id="label80">ZaiLetsPlay</span>
+                    <img src="noFilter.webp" alt="Horimiya Icon">
+                </li>
+                 <li>
+                    <input type="checkbox" id="check81" onchange="toggleLabel(this)">
+                    <span id="label81">Keisyo</span>
+                    <img src="kei.png" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check82" onchange="toggleLabel(this)">
+                    <span id="label82">ItsLimey</span>
+                    <img src="itslimey.webp" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check83" onchange="toggleLabel(this)">
+                    <span id="label83">K0maki</span>
+                    <img src="ko.webp" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check84" onchange="toggleLabel(this)">
+                    <span id="label84">Oracle_Moonlight</span>
+                    <img src="You_Met_Influencer_Oracle_Moonlight%2521.webp" alt="Horimiya Icon">
+                </li>
+               <li>
+                    <input type="checkbox" id="check85" onchange="toggleLabel(this)">
+                    <span id="label85">YTshaylo</span>
+                    <img src="You_Met_Youtuber_YTshaylo%2521.webp" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check86" onchange="toggleLabel(this)">
+                    <span id="label86">Missrossie</span>
+                    <img src="https://i.pinimg.com/474x/dc/64/98/dc649801abf705c25d0e5d4c279027df.jpg" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check87" onchange="toggleLabel(this)">
+                    <span id="label87">Pep_purr</span>
+                    <img src="noFilter%20(2).webp" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check88" onchange="toggleLabel(this)">
+                    <span id="label88">Othello</span>
+                    <img src="https://i.pinimg.com/474x/29/31/17/293117e531a999900fceb5fd09c12a1f.jpg" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check89" onchange="toggleLabel(this)">
+                    <span id="label89">Nutest</span>
+                    <img src="You_Met_Designer_Nutest%2521.webp" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check90" onchange="toggleLabel(this)">
+                    <span id="label90">Missmudmaam</span>
+                    <img src="https://i.pinimg.com/474x/cc/31/d7/cc31d723bcd1c19e7d914a1a4b25711f.jpg" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check91" onchange="toggleLabel(this)">
+                    <span id="label91">Melody_glitter</span>
+                    <img src="You_Met_Influencer_melody_glitter%2521.webp" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check92" onchange="toggleLabel(this)">
+                    <span id="label92">Royalhigh_edits</span>
+                    <img src="You_Met_Influencer_Royalehigh_edits%2521.webp" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check93" onchange="toggleLabel(this)">
+                    <span id="label93">KrystinPlays</span>
+                    <img src="Krystin.webp" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check94" onchange="toggleLabel(this)">
+                    <span id="label94">Kittzilla</span>
+                    <img src="KittzillaBadge.webp" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check95" onchange="toggleLabel(this)">
+                    <span id="label95">Killiamachine</span>
+                    <img src="You_Met_Influencer_Killuamachine%2521_Badge.webp" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check96" onchange="toggleLabel(this)">
+                    <span id="label96">KelseyAnna</span>
+                    <img src="You_Met_Designer_KelseyAnna%2521_Badge.webp" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check97" onchange="toggleLabel(this)">
+                    <span id="label97">Royalesxphie</span>
+                    <img src="You_Met_Influencer_Royalehighpics%2521_Badge.webp" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check98" onchange="toggleLabel(this)">
+                    <span id="label98">ImaGamerGirl</span>
+                    <img src="You_Met_YouTuber_Imagamergirl%2521_Badge.webp" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check99" onchange="toggleLabel(this)">
+                    <span id="label99">EmmieDearest</span>
+                    <img src="You_Met_Makeup_Artist_EmmieDearest%2521_Badge.webp" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check100" onchange="toggleLabel(this)">
+                    <span id="label100">CupCakeBitzes</span>
+                    <img src="You_Met_Influencer_CupCakeBitez%2521_Badge.webp" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check101" onchange="toggleLabel(this)">
+                    <span id="label101">AngiePlet</span>
+                    <img src="You_Met_Influencer_AngiePlet%2521_Badge.webp" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check102" onchange="toggleLabel(this)">
+                    <span id="label102">Lizzy_Winkle💖🌟</span>
+                    <img src="Met_Lizzy_Winkle_Badge.webp" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check103" onchange="toggleLabel(this)">
+                    <span id="label103">OceanOrbs</span>
+                    <img src="Met_OceanOrbs_Badge.webp" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check104" onchange="toggleLabel(this)">
+                    <span id="label104">Sukimeki</span>
+                    <img src="You_met_Royale_Developer_Sukimeki%2521.webp" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check105" onchange="toggleLabel(this)">
+                    <span id="label105">MeganPlays</span>
+                    <img src="Megan.webp" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check106" onchange="toggleLabel(this)">
+                    <span id="label106">Realrosesarered</span>
+                    <img src="https://i.pinimg.com/474x/a4/f5/8d/a4f58d91cb95abb10ae8512f0277a324.jpg" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check107" onchange="toggleLabel(this)">
+                    <span id="label107">IamSanna</span>
+                    <img src="https://i.pinimg.com/474x/32/de/34/32de34631cd53229ec056567257d6ec2.jpg" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check108" onchange="toggleLabel(this)">
+                    <span id="label108">InquisitorMaster</span>
+                    <img src="https://i.pinimg.com/474x/14/7b/53/147b532bd20a8c9b94a2255ee8cb7ec1.jpg" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check109" onchange="toggleLabel(this)">
+                    <span id="label109">ZacharyZaxor</span>
+                    <img src="https://i.pinimg.com/736x/ac/cb/65/accb651a48a7f57c1f893481f9ffc63a.jpg" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check110" onchange="toggleLabel(this)">
+                    <span id="label110">LeahAshe</span>
+                    <img src="https://i.pinimg.com/474x/f9/2b/74/f92b74e0422bdcd88293cfa167303c0a.jpg" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check111" onchange="toggleLabel(this)">
+                    <span id="label111">Ice7</span>
+                    <img src="https://i.pinimg.com/474x/73/a2/c1/73a2c1df24550f0736e20dbfcac1f9a6.jpg" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check112" onchange="toggleLabel(this)">
+                    <span id="label112">GamingMermaid</span>
+                    <img src="https://i.pinimg.com/474x/c5/27/df/c527df21670b1bd58d8706ee652fbdb4.jpg" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check113" onchange="toggleLabel(this)">
+                    <span id="label113">Ironclaw33</span>
+                    <img src="https://i.pinimg.com/474x/75/11/99/751199fc274eb3b6fd70fced95051253.jpg" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check114" onchange="toggleLabel(this)">
+                    <span id="label114">The Programmer</span>
+                    <img src="Met_the_Programmer_of_Enchantix_High%2521_Badge_-_Dak425.webp" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check115" onchange="toggleLabel(this)">
+                    <span id="label115">Closet_Skeleton</span>
+                    <img src="You_Met_the_Graphic_Designer_of_Royale-High%2521.webp" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check116" onchange="toggleLabel(this)">
+                    <span id="label116">Launcelotdev92</span>
+                    <img src="https://i.pinimg.com/474x/b8/4e/0e/b84e0e238bf289920f7e71320a24bb55.jpg" alt="Horimiya Icon">
+                </li>
+                <li>
+                    <input type="checkbox" id="check117" onchange="toggleLabel(this)">
+                    <span id="label117">Callmehbob</span>
+                    <img src="https://i.pinimg.com/474x/62/89/9c/62899c78eaf321c3dad4389d00f7cd72.jpg" alt="Horimiya Icon">
+                </li>
+                <!-- You can add more list items here -->
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        function openChecklist() {
+            document.getElementById('mainBox').style.display = 'none';
+            document.getElementById('checklistBox').style.display = 'block';
+        }
+
+        function toggleLabel(checkbox) {
+            let label = document.getElementById("label" + checkbox.id.replace("check", ""));
+            if (checkbox.checked) {
+                label.classList.add("checked-label");
+            } else {
+                label.classList.remove("checked-label");
+            }
+            localStorage.setItem(checkbox.id, checkbox.checked);
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            let checkboxes = document.querySelectorAll("input[type='checkbox']");
+            checkboxes.forEach(checkbox => {
+                let storedValue = localStorage.getItem(checkbox.id);
+                if (storedValue === "true") {
+                    checkbox.checked = true;
+                    toggleLabel(checkbox);
+                }
+            });
+        });
+
+        function searchChecklist() {
+            let searchTerm = document.getElementById("searchBar").value.toLowerCase();
+            let checklistItems = document.querySelectorAll("#checklistItems li");
+
+            checklistItems.forEach(item => {
+                let text = item.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    item.style.display = "flex";
+                } else {
+                    item.style.display = "none";
+                }
+            });
+        }
+        // Play sound on click
+        document.addEventListener("click", function() {
+            let audio = document.getElementById("clickSound");
+            audio.currentTime = 0; // Reset sound if it’s already playing
+            audio.play();
+        });
+
+    </script>
+</body>
+</html>
